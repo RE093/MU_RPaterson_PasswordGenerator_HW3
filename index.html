@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // User prompts
+        var userLet = prompt("How many characters do you want your password to be?               Must be between 8 - 128 characters ");
+        var userNum = confirm("Would you like your password to contain numbers?");
+        // Add in confirmation that numbers will be in
+
+        var userSym = confirm("Would you like your password to contain special characters?");
+        // Add in confirmation that special characters will be in
+
+        var userUpp = confirm("Would you like your password to contain upper case letters?");
+        // Add in confirmation that upper case letters will be in
+
+
+        // Password Generator Code
+        function randPassGen() {
+            var password = '';
+
+            for (i = 1; i <= userLet; i++) {
+    
+                // Password with only lower case letters
+                if (userNum === false && userSym === false && userUpp === false) {
+                    var letter = "abcdefghijklmnopqrstuvwxyz";
+                    var passLet = Math.floor(Math.random() * letter.length);
+                    password += letter.charAt(passLet);
+                }
+                // Password with lower case letters and numbers
+                else if (userNum === true && userSym === false && userUpp === false) {
+                    var letNum = "abcdefghijklmnopqrstuvwxyz0123456789";
+                    var passLet = Math.floor(Math.random() * letNum.length);
+                    password += letNum.charAt(passLet);
+                }
+                // Password with lower case letters and symbols
+                else if (userNum === false && userSym === true && userUpp === false) {
+                    var letSym = "abcdefghijklmnopqrstuvwxyz!@#$%^&*_-+=][|<>?/`~";
+                    var passLet = Math.floor(Math.random() * letSym.length);
+                    password += letSym.charAt(passLet);
+                }
+                // Password with lower and upper case letters
+                else if (userNum === false && userSym === false && userUpp === true) {
+                    var letUpp = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                    var passLet = Math.floor(Math.random() * letUpp.length);
+                    password += letUpp.charAt(passLet);
+                }
+                // Password with lowercase letters, upper case letters and symbols
+                else if (userNum === false && userSym === true && userUpp === true) {
+                    var letUppSym = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*_-+=][|<>?/`~";
+                    var passLet = Math.floor(Math.random() * letUppSym.length);
+                    password += letUppSym.charAt(passLet);
+                }
+                // Password with lowercase letters, upper case letters and numbers
+                else if (userNum === true && userSym === false && userUpp === true) {
+                    var letUppNum = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                    var passLet = Math.floor(Math.random() * letUppNum.length);
+                    password += letUppNum.charAt(passLet);
+                }
+                // Password with lowercase letters, symbols and numbers
+                else if (userNum === true && userSym === true && userUpp === false) {
+                    var letSymNum = "abcdefghijklmnopqrstuvwxyz!@#$%^&*_-+=][|<>?/`~0123456789";
+                    var passLet = Math.floor(Math.random() * letSymNum.length);
+                    password += letSymNum.charAt(passLet);
+                }
+                // Password with all combinations
+                else if (userNum === true && userSym === true && userUpp === true) {
+                    var letAll = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*_-+=][|<>?/`~0123456789";
+                    var passLet = Math.floor(Math.random() * letAll.length);
+                    password += letAll.charAt(passLet);
+                }
+            }
+            console.log(password)
+        };
+
+        // Generate Password Function
+        randPassGen();
+
+    </script>
+</body>
+</html>
