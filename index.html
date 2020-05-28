@@ -1,152 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-
-        // Password Generator Code
-        function randPassGen() {
-
-            var userLet = prompt("How many characters do you want your password to be?               Must be between 8 - 128 characters ");
-
-            var userLow = confirm("Would you like your password to contain lower case letters?");
-            if (userLow) {
-                alert("You have selected you want lower case letters in your password")
-            }
-
-            var userUpp = confirm("Would you like your password to contain upper case letters?");
-            if (userUpp) {
-                alert("You have selected you want upper case letters in your password")
-            }
-
-            var userNum = confirm("Would you like your password to contain numbers?");
-            if (userNum) {
-                alert("You have selected you want numbers in your password")
-            }
-
-            var userSym = confirm("Would you like your password to contain special characters?");
-            if (userSym) {
-                alert("You have selected you want special characters in your password")
-            }
-            if (userLow === false && userUpp === false && userNum === false && userSym === false) {
-                alert("You need to select at least one character type before a password can be generated")
-            }
-            
-            // Add in selection for lower case, if no characters are selected, say invalid password, redirect to start again
-
-            var password = "";
-            var passwordMakeUp = "";
-            var letter = "abcdefghijklmnopqrstuvwxyz";
-            var letterUpp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var number = "0123456789";
-            var symbol = "!@#$%^&*_-+=][|<>?/`~";
-
-            for (i = 1; i <= userLet; i++) {
-    
-                // Password with only lower case letters
-                if (userNum === false && userSym === false && userUpp === false && userLow === true) {
-                    let passwordMakeUp = letter;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with only upper case latter
-                if (userNum === false && userSym === false && userUpp === true && userLow === false) {
-                    let passwordMakeUp = letterUpp;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with only symbols
-                if (userNum === false && userSym === true && userUpp === false && userLow === false) {
-                    let passwordMakeUp = symbol;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with only numbers
-                if (userNum === true && userSym === false && userUpp === false && userLow === false) {
-                    let passwordMakeUp = number;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with lower case letters and numbers
-                else if (userNum === true && userSym === false && userUpp === false && userLow === true) {
-                    let passwordMakeUp = letter + number;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with lower case letters and symbols
-                else if (userNum === false && userSym === true && userUpp === false && userLow === true) {
-                    let passwordMakeUp = letter + symbol;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with lower and upper case letters
-                else if (userNum === false && userSym === false && userUpp === true && userLow === true) {
-                    let passwordMakeUp = letter + letterUpp;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with upper case letters and numbers
-                else if (userNum === true && userSym === false && userUpp === true && userLow === false) {
-                    let passwordMakeUp = number + letterUpp;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with upper case letters and symbols
-                else if (userNum === false && userSym === true && userUpp === true && userLow === false) {
-                    let passwordMakeUp = symbol + letterUpp;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with numbers and symbols
-                else if (userNum === true && userSym === true && userUpp === false && userLow === false) {
-                    let passwordMakeUp = symbol + number;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with lowercase letters, upper case letters and symbols
-                else if (userNum === false && userSym === true && userUpp === true && userLow === true) {
-                    let passwordMakeUp = letter + letterUpp + symbol;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with lowercase letters, upper case letters and numbers
-                else if (userNum === true && userSym === false && userUpp === true && userLow === true) {
-                    let passwordMakeUp = letter + letterUpp + number;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with lowercase letters, symbols and numbers
-                else if (userNum === true && userSym === true && userUpp === false && userLow === true) {
-                    let passwordMakeUp = letter + symbol + number;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with upper case letters, symbols and numbers
-                else if (userNum === true && userSym === true && userUpp === true && userLow === false) {
-                    let passwordMakeUp = number + letterUpp + symbol;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-                // Password with all combinations
-                else if (userNum === true && userSym === true && userUpp === true && userLow === true) {
-                    let passwordMakeUp = letter + letterUpp + number + symbol;
-                    var passLet = Math.floor(Math.random() * passwordMakeUp.length);
-                    password += passwordMakeUp.charAt(passLet);
-                }
-            }
-            if (userLow === true || userUpp === true || userNum === true || userSym === true) {
-            alert("Here is your password: " + password)
-            }
-            password += passwordMakeUp.charAt(passLet);
-        };
-
-        // Generate Password Function
-        randPassGen();
-
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

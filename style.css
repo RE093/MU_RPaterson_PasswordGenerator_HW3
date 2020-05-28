@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vw;
+    width: 100vw;
+}
+
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+    color: rgb(0, 179, 255);
+    margin-bottom: 80px;
+}
+
+.card {
+    margin: 0 auto;
+    max-width: 70%;
+    height: 50vw;
+}
+
+textarea {
+    width: 40%;
+    height: 100%;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 2%;
+}
+
+.card-body, 
+.card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    margin: 40px;
+}
+
+.card-footer {
+    height: 10%;
+    clear: both;
+}
+
+.btn {
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(0, 179, 255);
+    font-size: 16px;
+}
+.btn:hover {
+    background-color: rgb(2, 131, 186);
+}
+.btn:active {
+    background-color: rgb(94, 202, 249);
+}
+
+@media (max-width: 880px) {
+    textarea {
+        width: 80%;
+        height: 80%
+    }
+    .card-body {
+        height: 50%;
+    }
+}
+
+@media (max-width: 690px) {
+    .btn {
+      font-size: 0.8rem;
+      margin: 16px 0px 0px 0px;
+      padding: 10px 15px;
+    }
+  
+    #password {
+      font-size: 1rem;
+    }
+    textarea {
+        width: 100%;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .btn {
+      font-size: 0.9rem;
+    }
+    #password {
+        font-size: 0.8rem;
+    }
+  }
+  
